@@ -7,7 +7,7 @@ function App() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    fetch("https://9k43gt-5000.csb.app/notes")
+    fetch("https://keeper-backend-production-3b95.up.railway.app/notes")
       .then((response) => response.json())
       .then((data) => {
         setNotes(data);
@@ -15,7 +15,7 @@ function App() {
   }, []);
   useEffect(() => {
     if (noteChanged) {
-      fetch("https://9k43gt-5000.csb.app/new-note", {
+      fetch("https://keeper-backend-production-3b95.up.railway.app/updateNotes", {
         method: "POST",
         mode: "cors",
         body: JSON.stringify(notes),
